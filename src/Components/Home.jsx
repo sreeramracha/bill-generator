@@ -1,9 +1,11 @@
+// npm i react-icons
 import React, { useState } from "react";
+// import { TiShoppingCart } from "react-icons/ti";
 import { productItems } from "./ProductItems";
 import ProductList from "./ProductList";
 
 export default function Home() {
-	console.log(productItems);
+	// console.log(productItems);
 
 	const [searchText, setSearchText] = useState("");
 
@@ -13,6 +15,7 @@ export default function Home() {
 
 	return (
 		<>
+			{/* <div className="cart-box"><TiShoppingCart /></div> */}
 			<div className="search-bar">
 				<input
 					type="text"
