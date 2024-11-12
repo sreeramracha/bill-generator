@@ -3,6 +3,12 @@ import { TiShoppingCart } from "react-icons/ti";
 import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
+	// const navigate = useNavigate();
+
+	// function handleNavigation() {
+	// 	navigate("/cart");
+	// }
+
 	return (
 		<>
 			<div className="cart-container">
@@ -11,7 +17,11 @@ export default function Navbar(props) {
 					<p>TESTING TESTING</p>
 				</div>
 				<div className="cart-body">
-					<Link to="/cart" className="cart-box">
+					<Link
+						to="/cart"
+						className="cart-box"
+						// onClick={handleNavigation}
+					>
 						<TiShoppingCart size={50} />
 						<span className="cart-notification">
 							{props.cartCount}
