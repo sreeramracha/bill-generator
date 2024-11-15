@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Cart from "./Cart";
 import Home from "./Home";
 
@@ -84,26 +84,11 @@ function Routing() {
 	}
 
 	function removeCartProductList(newProduct) {
-		const existingProduct = cartProductList.find(
-			(product) => newProduct.id === product.id
+		const updatedProductList = cartProductList.filter(
+			(item) => item.id !== newProduct.id
 		);
 
-		if (existingProduct) {
-			setCartProductList((prevValue) => {
-				return prevValue.map((item) => {
-					return item.id === newProduct.id
-						? { ...item, quantity: changeQuantity }
-						: item;
-				});
-			});
-		} else {
-			setCartProductList((prevValue) => {
-				return [
-					...prevValue,
-					{ ...newProduct, quantity: changeQuantity },
-				];
-			});
-		}
+		setCartProductList(updatedProductList);
 	}
 
 	return (
@@ -126,6 +111,7 @@ function Routing() {
 						addCartProductList={addCartProductList}
 						subtractCartProductList={subtractCartProductList}
 						changeCartProductList={changeCartProductList}
+						removeCartProductList={removeCartProductList}
 					/>
 				}
 			/>

@@ -23,9 +23,11 @@ export default function Navbar(props) {
 						// onClick={handleNavigation}
 					>
 						<TiShoppingCart size={50} />
-						<span className="cart-notification">
-							{props.cartCount}
-						</span>
+						{props.cartCount > 0 ? (
+							<span className="cart-notification">
+								{props.cartCount}
+							</span>
+						) : null}
 					</Link>
 				</div>
 			</div>

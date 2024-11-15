@@ -25,6 +25,10 @@ export default function CartProduct(props) {
 		setProductQuantity("");
 	}
 
+	function handleRemoveCartProduct() {
+		props.removeCartProductList(props.item);
+	}
+
 	return (
 		<>
 			<div className="cart-product">
@@ -37,7 +41,10 @@ export default function CartProduct(props) {
 						Quantity:
 						<div className="cart-product-quantity">
 							{props.item.quantity === 1 ? (
-								<RiDeleteBin6Line className="cart-icon" />
+								<RiDeleteBin6Line
+									className="cart-icon"
+									onClick={handleRemoveCartProduct}
+								/>
 							) : (
 								<GrSubtractCircle
 									className="cart-icon"
@@ -60,7 +67,9 @@ export default function CartProduct(props) {
 						</div>
 					</p>
 					<div className="cart-product-remove">
-						<button onClick={}>Remove from Cart</button>
+						<button onClick={handleRemoveCartProduct}>
+							Remove from Cart
+						</button>
 					</div>
 				</div>
 				<div className="cart-prodcut-price">₹{props.item.price}</div>

@@ -1,8 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import CartProduct from "./CartProduct";
 
 export default function Cart(props) {
+	const [cartPrice, setCartPrice] = useState(0);
+
+	useEffect(() => {
+		const tempCartPrice = props.cartProductList.reduce(function (
+			sum,
+			item
+		) {
+			return sum + item.price * item.quantity;
+		},
+		0);
+
+		setCartPrice(tempCartPrice);
+	}, [props.cartProductList]);
+
 	return (
 		<>
 			<Navbar cartCount={props.cartCount} />
@@ -17,8 +31,22 @@ export default function Cart(props) {
 						addCartProductList={props.addCartProductList}
 						subtractCartProductList={props.subtractCartProductList}
 						changeCartProductList={props.changeCartProductList}
+						removeCartProductList={props.removeCartProductList}
 					/>
 				))}
+			</div>
+
+			<div className="break-line">
+				<hr />
+			</div>
+
+			<div className="cart-items-total-price">
+				<p>Total</p>
+				<p>₹{cartPrice}</p>
+			</div>
+
+			<div className="cart-items-place-order">
+				<button>Place Order</button>
 			</div>
 		</>
 	);
