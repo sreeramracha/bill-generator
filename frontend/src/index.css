@@ -19,10 +19,10 @@ code {
 		monospace;
 }
 
-* {
+/* * {
 	transition-timing-function: ease-in;
 	transition-duration: 0.5s;
-}
+} */
 
 /* NAVBAR */
 
