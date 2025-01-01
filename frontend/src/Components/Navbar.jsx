@@ -16,6 +16,12 @@ export default function Navbar(props) {
 					{/* <p>TEJASWINI SALES CORPORATION</p> */}
 					<p>TESTING TESTING</p>
 				</div>
+				<div className="cart-login">
+					<Link to="/login" className="login">
+						Log In
+					</Link>
+				</div>
+
 				<div className="cart-body">
 					<Link
 						to="/cart"

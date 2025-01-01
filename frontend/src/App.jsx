@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import Cart from "./Cart";
-import Home from "./Home";
+import Cart from "./Pages/Cart";
+import Home from "./Pages/Home";
 
 function Routing() {
 	const [cartCount, setCartCount] = useState(0);
@@ -13,13 +13,13 @@ function Routing() {
 
 	function addCartProductList(newProduct) {
 		const existingProduct = cartProductList.find(
-			(product) => newProduct.id === product.id
+			(product) => newProduct._id === product._id
 		);
 
 		if (existingProduct) {
 			setCartProductList((prevValue) => {
 				return prevValue.map((item) => {
-					return item.id === newProduct.id
+					return item._id === newProduct._id
 						? { ...item, quantity: item.quantity + 1 }
 						: item;
 				});
@@ -38,13 +38,13 @@ function Routing() {
 
 	function subtractCartProductList(newProduct) {
 		const existingProduct = cartProductList.find(
-			(product) => newProduct.id === product.id
+			(product) => newProduct._id === product._id
 		);
 
 		if (existingProduct) {
 			setCartProductList((prevValue) => {
 				return prevValue.map((item) => {
-					return item.id === newProduct.id
+					return item._id === newProduct._id
 						? { ...item, quantity: item.quantity - 1 }
 						: item;
 				});
@@ -60,13 +60,13 @@ function Routing() {
 
 	function changeCartProductList(newProduct, changeQuantity) {
 		const existingProduct = cartProductList.find(
-			(product) => newProduct.id === product.id
+			(product) => newProduct._id === product._id
 		);
 
 		if (existingProduct) {
 			setCartProductList((prevValue) => {
 				return prevValue.map((item) => {
-					return item.id === newProduct.id
+					return item._id === newProduct._id
 						? { ...item, quantity: changeQuantity }
 						: item;
 				});
@@ -85,7 +85,7 @@ function Routing() {
 
 	function removeCartProductList(newProduct) {
 		const updatedProductList = cartProductList.filter(
-			(item) => item.id !== newProduct.id
+			(item) => item._id !== newProduct._id
 		);
 
 		setCartProductList(updatedProductList);
@@ -115,6 +115,7 @@ function Routing() {
 					/>
 				}
 			/>
+			<Route path="/login" element={<Login />} />
 		</Routes>
 	);
 }

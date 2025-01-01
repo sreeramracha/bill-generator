@@ -1,9 +1,12 @@
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { GrSubtractCircle } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { getProductImageRoute } from "../utils/APIRoutes";
 
 export default function CartProduct(props) {
+	const [image, setImage] = useState(null);
 	const [productQuantity, setProductQuantity] = useState();
 
 	function handleProductQuantity(event) {
@@ -29,11 +32,34 @@ export default function CartProduct(props) {
 		props.removeCartProductList(props.item);
 	}
 
+	useEffect(() => {
+		try {
+			axios
+				.get(`${getProductImageRoute}/${props.item.imageFileName}`, {
+					responseType: "arraybuffer", // Fetch as binary data
+				})
+				.then(function (response) {
+					// Convert the binary data to a Blob
+					const blob = new Blob([response.data], {
+						type: "image/jpeg",
+					});
+
+					// Generate a URL for the Blob
+					const imageUrl = URL.createObjectURL(blob);
+
+					// Set the image source
+					setImage(imageUrl);
+				});
+		} catch (error) {
+			console.error("Error fetching image:", error);
+		}
+	}, [props.item]);
+
 	return (
 		<>
 			<div className="cart-product">
 				<div className="cart-product-image">
-					<img src={props.item.image} alt="Loading" />
+					<img src={image} alt="Loading" />
 				</div>
 				<div className="cart-product-name">
 					<p>{props.item.name}</p>

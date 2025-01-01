@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { TiShoppingCart } from "react-icons/ti";
-import { productItems } from "./ProductItems";
-import ProductList from "./ProductList";
-import { Link } from "react-router-dom";
-import Navbar from "./Navbar";
+// import { productItems } from "./ProductItems";
+import ProductList from "../Components/ProductList";
+import Navbar from "../Components/Navbar";
+import axios from "axios";
+import { getAllProductsRoute } from "../utils/APIRoutes";
 
 export default function Home(props) {
 	const [searchText, setSearchText] = useState("");
 	const [filteredProducts, setFilteredProducts] = useState([]);
+	const [productItems, setProductItems] = useState([]);
+
+	useEffect(() => {
+		axios.get(getAllProductsRoute).then(function (response) {
+			setProductItems(response.data);
+			setFilteredProducts(response.data);
+			// console.log(response);
+		});
+	}, []);
 
 	useEffect(() => {
 		// Update filteredProducts based on searchText

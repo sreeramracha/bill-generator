@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
-import CartProduct from "./CartProduct";
+import Navbar from "../Components/Navbar";
+import CartProduct from "../Components/CartProduct";
 
 export default function Cart(props) {
 	const [cartPrice, setCartPrice] = useState(0);

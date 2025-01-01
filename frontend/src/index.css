@@ -47,6 +47,30 @@ code {
 	font-weight: bold;
 }
 
+.cart-login {
+	position: absolute;
+	right: 70px;
+}
+
+.login {
+	background-color: orange;
+	text-decoration: none;
+	color: aliceblue;
+	padding: 0.5em 1em;
+	border-radius: 1em;
+	font-size: large;
+}
+
+.login:hover {
+	cursor: pointer;
+	background-color: rgb(250, 186, 67);
+}
+
+.login:active {
+	cursor: pointer;
+	background-color: orange;
+}
+
 .cart-body {
 	position: absolute;
 	right: 10px;
