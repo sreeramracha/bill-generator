@@ -8,7 +8,7 @@ module.exports.addProduct = async (req, res) => {
 		const { path, filename } = req.file;
 		const { company, category, name, price } = req.body;
 
-		console.log(req.body);
+		// console.log(req.body);
 
 		const data = await productModel({
 			company,

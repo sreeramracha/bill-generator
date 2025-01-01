@@ -59,6 +59,25 @@
 	background-color: orange;
 }
 
+.search-bar .add-products {
+	margin: 10px;
+	background-color: orange;
+	color: aliceblue;
+	padding: 10px 40px;
+	border-radius: 50px;
+	border-color: transparent;
+	font-size: large;
+}
+
+.search-bar .add-products:hover {
+	cursor: pointer;
+	background-color: rgb(250, 186, 67);
+}
+
+.search-bar .add-products:active {
+	background-color: orange;
+}
+
 /* EDIT PRODUCTS */
 .update-product {
 	display: flex;

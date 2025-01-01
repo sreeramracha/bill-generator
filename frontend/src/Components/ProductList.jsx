@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getProductImageRoute, updateProductRoute } from "../utils/APIRoutes";
+import {
+	deleteProductRoute,
+	getProductImageRoute,
+	updateProductRoute,
+} from "../utils/APIRoutes";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function ProductList(props) {
 	const [image, setImage] = useState(null);
@@ -34,6 +39,7 @@ export default function ProductList(props) {
 				});
 		} catch (error) {
 			console.error("Error fetching image:", error);
+			toast.error("Error fetching image:");
 		}
 	}, [props.item]);
 
@@ -61,10 +67,12 @@ export default function ProductList(props) {
 					},
 				})
 				.then(function (response) {
-					console.log("Response:", response.data); // Log the server's response
+					// console.log("Response:", response.data); // Log the server's response
+					toast.success("Product Updated Successfully");
 				})
 				.catch(function (error) {
-					console.log(error);
+					// console.log(error);
+					toast.error("Error in updating product");
 				});
 		} else {
 			axios
@@ -81,10 +89,12 @@ export default function ProductList(props) {
 					}
 				)
 				.then(function (response) {
-					console.log("Response:", response.data); // Log the server's response
+					// console.log("Response:", response.data); // Log the server's response
+					toast.success("Product Updated Successfully");
 				})
 				.catch(function (error) {
-					console.log(error);
+					// console.log(error);
+					toast.error("Error in updating product");
 				});
 		}
 	};
@@ -106,6 +116,22 @@ export default function ProductList(props) {
 				};
 			});
 		}
+	};
+
+	const handleDelete = () => {
+		props.handleDeleteVariable();
+		axios
+			.post(deleteProductRoute, {
+				id: props.item._id,
+			})
+			.then(function (response) {
+				console.log("Response:", response.data); // Log the server's response
+				toast.success("Product Deleted Successfully");
+			})
+			.catch(function (error) {
+				console.log(error);
+				toast.error("Error in deleting product");
+			});
 	};
 
 	return (
@@ -156,7 +182,8 @@ export default function ProductList(props) {
 							onChange={handleChange}
 						/>
 					</div>
-					<button onClick={handleUpdate}>Update</button>
+					<button onClick={handleUpdate}>Update Product</button>
+					<button onClick={handleDelete}>Delete Product</button>
 				</div>
 			) : (
 				<div className="product">

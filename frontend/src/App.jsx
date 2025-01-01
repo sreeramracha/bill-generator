@@ -3,6 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import Cart from "./Pages/Cart";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
+import AddProduct from "./Pages/AddProduct";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Routing() {
 	const [cartCount, setCartCount] = useState(0);
@@ -117,6 +120,7 @@ function Routing() {
 				}
 			/>
 			<Route path="/login" element={<Login />} />
+			<Route path="/addProduct" element={<AddProduct />} />
 		</Routes>
 	);
 }
@@ -125,6 +129,7 @@ function App() {
 	return (
 		<>
 			<Routing />
+			<ToastContainer position="bottom-right" theme="colored" />
 		</>
 	);
 }

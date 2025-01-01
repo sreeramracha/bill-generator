@@ -5,15 +5,16 @@ import Navbar from "../Components/Navbar";
 import axios from "axios";
 import { getAllProductsRoute } from "../utils/APIRoutes";
 import "../styles/home.css";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Home(props) {
 	const [searchText, setSearchText] = useState("");
 	const [filteredProducts, setFilteredProducts] = useState([]);
 	const [productItems, setProductItems] = useState([]);
-	const [isAdmin, setIsAdmin] = useState(false);
+	const [isAdmin, setIsAdmin] = useState(true);
 	const [isEdit, setIsEdit] = useState(true);
-	const navigate = useNavigate();
+	const [isAdd, setIsAdd] = useState(false);
+	const [isDelete, setIsDelete] = useState(false);
 
 	useEffect(() => {
 		axios.get(getAllProductsRoute).then(function (response) {
@@ -21,7 +22,7 @@ export default function Home(props) {
 			setFilteredProducts(response.data);
 			// console.log(response);
 		});
-	}, []);
+	}, [isEdit, isDelete, isAdd]);
 
 	useEffect(() => {
 		// Update filteredProducts based on searchText
@@ -45,7 +46,14 @@ export default function Home(props) {
 	const handleEdit = () => {
 		setIsAdmin(true);
 		setIsEdit(!isEdit);
-		navigate("/");
+	};
+
+	const handleAdd = () => {
+		setIsAdd(true);
+	};
+
+	const handleDeleteVariable = () => {
+		setIsDelete(!isDelete);
 	};
 
 	return (
@@ -61,9 +69,18 @@ export default function Home(props) {
 				/>
 				<button className="search-button">Search</button>
 
-				<button className="edit-products" onClick={handleEdit}>
-					{isEdit ? "Edit Products" : "Save Changes"}
-				</button>
+				{isAdmin && (
+					<button className="edit-products" onClick={handleEdit}>
+						{isEdit ? "Edit Products" : "Save Changes"}
+					</button>
+				)}
+				{!isEdit && (
+					<Link to="/addProduct">
+						<button className="add-products" onClick={handleAdd}>
+							Add a Product
+						</button>
+					</Link>
+				)}
 			</div>
 			<div className="product-list">
 				{filteredProducts.map((item) => {
@@ -73,6 +90,7 @@ export default function Home(props) {
 							item={item}
 							addCartProductList={props.addCartProductList}
 							isEdit={isEdit}
+							handleDeleteVariable={handleDeleteVariable}
 						/>
 					);
 				})}
