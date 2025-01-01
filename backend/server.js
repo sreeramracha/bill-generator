@@ -1,16 +1,15 @@
 const express = require("express");
 const routes = require("./routes/productRoute");
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: process.env.HOST }));
 app.use(express.static("Images"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-require("dotenv").config();
 
 require("./DB/connection");
 

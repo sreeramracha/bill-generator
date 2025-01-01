@@ -1,4 +1,5 @@
-export const host = "http://localhost:5000";
+export const host = process.env.REACT_APP_HOST;
+
 // export const host = "";
 export const getAllProductsRoute = `${host}/api/auth/getAllProducts`;
 export const updateProductRoute = `${host}/api/auth/updateProduct`;
