@@ -125,11 +125,11 @@ export default function ProductList(props) {
 				id: props.item._id,
 			})
 			.then(function (response) {
-				console.log("Response:", response.data); // Log the server's response
+				// console.log("Response:", response.data); // Log the server's response
 				toast.success("Product Deleted Successfully");
 			})
 			.catch(function (error) {
-				console.log(error);
+				// console.log(error);
 				toast.error("Error in deleting product");
 			});
 	};

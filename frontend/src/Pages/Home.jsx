@@ -58,7 +58,6 @@ export default function Home(props) {
 
 	return (
 		<>
-			{console.log(process.env.REACT_APP_HOST)}
 			<Navbar cartCount={props.cartCount} />
 
 			<div className="search-bar">
