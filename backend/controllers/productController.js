@@ -41,12 +41,24 @@ module.exports.deleteProduct = async (req, res) => {
 
 module.exports.updateProduct = async (req, res) => {
 	try {
-		const { name } = req.body;
+		const { company, category, name, price } = req.body;
 
-		// console.log(name);
-		// console.log(req.body);
+		const updateData = { company, category, name, price };
 
-		const product = await productModel.findOneAndUpdate({ name }, req.body);
+		if (req.file) {
+			const { path, filename } = req.file;
+			if (path && filename) {
+				updateData.imagePath = path;
+				updateData.imageFileName = filename;
+			}
+		}
+
+		console.log(updateData);
+
+		const product = await productModel.findOneAndUpdate(
+			{ name },
+			updateData
+		);
 		if (!product) {
 			return res.status(404).json({ message: "Product not found" });
 		}

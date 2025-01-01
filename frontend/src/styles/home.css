@@ -23,7 +23,7 @@
 	border-width: 5px;
 }
 
-.search-bar > button {
+.search-bar .search-button {
 	height: 75px;
 	width: 150px;
 	font-size: x-large;
@@ -32,12 +32,96 @@
 	color: whitesmoke;
 }
 
-.search-bar > button:hover {
+.search-bar .search-button:hover {
 	background-color: rgb(91, 125, 22);
 }
 
-.search-bar > button:hover {
+.search-bar .search-button:hover {
 	cursor: pointer;
+}
+
+.search-bar .edit-products {
+	margin: 10px;
+	background-color: orange;
+	color: aliceblue;
+	padding: 10px 40px;
+	border-radius: 50px;
+	border-color: transparent;
+	font-size: large;
+}
+
+.search-bar .edit-products:hover {
+	cursor: pointer;
+	background-color: rgb(250, 186, 67);
+}
+
+.search-bar .edit-products:active {
+	background-color: orange;
+}
+
+/* EDIT PRODUCTS */
+.update-product {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+	background-color: bisque;
+	margin: 2em;
+	padding: 2em;
+	border-radius: 1em;
+}
+
+.update-product > button {
+	margin: 10px;
+	background-color: orange;
+	color: aliceblue;
+	padding: 10px 40px;
+	border-radius: 50px;
+	border-color: transparent;
+	font-size: large;
+}
+
+.update-product > button:hover {
+	cursor: pointer;
+	background-color: rgb(250, 186, 67);
+}
+
+.update-product > button:active {
+	background-color: orange;
+}
+
+.update-field {
+	display: flex;
+	margin: 0.5em;
+}
+
+.update-field > p {
+	margin: 0.5em 1em;
+}
+
+.update-field > input {
+	height: 1em;
+	width: 50em;
+	padding: 0.5em;
+	border-color: transparent;
+	outline: none;
+}
+
+.update-field:nth-child(1) > p {
+	margin-right: 0.75em;
+}
+
+.update-field:nth-child(2) > p {
+	margin-right: 1em;
+}
+
+.update-field:nth-child(3) > p {
+	margin-right: 1.5em;
+}
+
+.update-field:nth-child(4) > p {
+	margin-right: 5.75em;
 }
 
 /* DISPLAY PRODUCTS */
