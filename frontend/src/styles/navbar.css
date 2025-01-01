@@ -1,0 +1,68 @@
+/* NAVBAR */
+
+.cart-container {
+	position: sticky;
+	top: 0;
+	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cart-heading {
+	justify-content: center;
+}
+
+.cart-heading > p {
+	color: yellow;
+	margin: 0;
+	font-size: xx-large;
+	padding: 5px;
+	font-weight: bold;
+}
+
+.cart-login {
+	position: absolute;
+	right: 70px;
+}
+
+.login {
+	background-color: orange;
+	text-decoration: none;
+	color: aliceblue;
+	padding: 0.5em 1em;
+	border-radius: 1em;
+	font-size: large;
+}
+
+.login:hover {
+	cursor: pointer;
+	background-color: rgb(250, 186, 67);
+}
+
+.login:active {
+	cursor: pointer;
+	background-color: orange;
+}
+
+.cart-body {
+	position: absolute;
+	right: 10px;
+}
+
+.cart-box {
+	display: flex;
+	justify-content: flex-end;
+	color: antiquewhite;
+	text-decoration: none;
+	position: relative;
+}
+
+.cart-notification {
+	position: absolute;
+	right: 13px;
+	color: aliceblue;
+	font-weight: bolder;
+	background-color: red;
+	border-radius: 100%;
+}

@@ -4,6 +4,7 @@ import ProductList from "../Components/ProductList";
 import Navbar from "../Components/Navbar";
 import axios from "axios";
 import { getAllProductsRoute } from "../utils/APIRoutes";
+import "../styles/home.css";
 
 export default function Home(props) {
 	const [searchText, setSearchText] = useState("");

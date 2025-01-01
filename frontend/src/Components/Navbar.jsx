@@ -1,6 +1,6 @@
-// import React from "react";
 import { TiShoppingCart } from "react-icons/ti";
 import { Link } from "react-router-dom";
+import "../styles/navbar.css";
 
 export default function Navbar(props) {
 	// const navigate = useNavigate();

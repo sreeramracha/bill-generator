@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Cart from "./Pages/Cart";
 import Home from "./Pages/Home";
+import Login from "./Pages/Login";
 
 function Routing() {
 	const [cartCount, setCartCount] = useState(0);

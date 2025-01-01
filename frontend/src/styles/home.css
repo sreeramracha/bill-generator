@@ -1,0 +1,89 @@
+/* SEARCH BAR */
+
+.search-bar {
+	margin: 40px 100px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.search-bar > input {
+	height: 50px;
+	width: 500px;
+	font-size: x-large;
+	padding: 10px;
+	border-color: transparent;
+	outline: none;
+	transition: border-color 0.5s ease;
+}
+
+.search-bar > input:focus {
+	border-color: yellow;
+	outline: none;
+	border-width: 5px;
+}
+
+.search-bar > button {
+	height: 75px;
+	width: 150px;
+	font-size: x-large;
+	background-color: yellowgreen;
+	border-color: transparent;
+	color: whitesmoke;
+}
+
+.search-bar > button:hover {
+	background-color: rgb(91, 125, 22);
+}
+
+.search-bar > button:hover {
+	cursor: pointer;
+}
+
+/* DISPLAY PRODUCTS */
+
+.product-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	text-align: center;
+}
+
+.product {
+	margin: 5% 3% 0;
+	background-color: bisque;
+	font-size: larger;
+	font-weight: bold;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+}
+
+.product > img {
+	height: 300px;
+	width: 300px;
+}
+
+.product > p {
+	margin: 0px 10px 10px;
+}
+
+.product > p:first-of-type {
+	width: 275px;
+	text-wrap: balance;
+}
+
+.product > button {
+	margin: 10px;
+	background-color: orange;
+	color: aliceblue;
+	padding: 10px 40px;
+	border-radius: 50px;
+	border-color: transparent;
+	font-size: large;
+}
+
+.product > button:hover {
+	cursor: pointer;
+	background-color: rgb(250, 186, 67);
+}
