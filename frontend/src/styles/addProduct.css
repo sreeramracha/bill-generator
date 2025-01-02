@@ -1,0 +1,19 @@
+.back-to-home-page {
+	margin: 10px;
+	background-color: orange;
+	color: aliceblue;
+	padding: 10px 40px;
+	border-radius: 50px;
+	border-color: transparent;
+	font-size: large;
+	width: fill;
+}
+
+.back-to-home-page:hover {
+	cursor: pointer;
+	background-color: rgb(250, 186, 67);
+}
+
+.back-to-home-page:active {
+	background-color: orange;
+}

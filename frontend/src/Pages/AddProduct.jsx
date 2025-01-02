@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { addProductRoute } from "../utils/APIRoutes";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import "../styles/addProduct.css";
 
 export default function AddProduct() {
 	const [productInfo, setProductInfo] = useState({
@@ -129,6 +131,12 @@ export default function AddProduct() {
 					<input type="file" name="image" onChange={handleChange} />
 				</div>
 				<button onClick={handleAdd}>Add Product</button>
+
+				<Link to="/">
+					<button className="back-to-home-page">
+						Back to Home Page
+					</button>
+				</Link>
 			</div>
 		</>
 	);
